@@ -1,0 +1,62 @@
+:root {
+  --bg: #0f0f11;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: var(--bg);
+  overscroll-behavior: none;
+}
+
+body {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  font-family: 'JetBrains Mono', 'Cascadia Mono', Consolas, ui-monospace, monospace;
+}
+
+.scene {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  touch-action: manipulation;
+}
+
+/* 누른 횟수. 크기와 위치는 상자 구도에 맞춰 main.js 가 넣는다. */
+.count {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: calc(var(--count-top, 31) * 1px);
+  display: block;
+  text-align: center;
+  font-size: calc(var(--count-size, 18) * 1px);
+  font-weight: 300;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+  color: rgb(255 255 255 / 0.56);
+  pointer-events: none;
+}
+
+/* 포인터는 캔버스가 받는다. 이 단추는 키보드와 보조 기술을 위한 것이다. */
+.press {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  opacity: 0;
+  outline: none;
+}
